@@ -79,6 +79,9 @@ public class MochilaEnteraDinamico {
            double val = this.mBeneficios[i][j];
           if( val != this.mBeneficios[i-1][j]){
               this.itemsSolucion.add(this.items.get(i-1));
+              // imprimir el articulo
+              String aux =this.items.get(i-1).toString();
+              System.out.println(aux);
               i--;
               j = j - this.items.get(i).getPeso();
           } else {

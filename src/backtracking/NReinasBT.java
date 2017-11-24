@@ -24,45 +24,48 @@ public class NReinasBT {
      this.solucion = new int[n];
      this. n = n;
      for(int x=0; x < n;x++)
-         this.solucion[x]=-1;
+         this.solucion[x]=0;
      
-     return  buscar(solucion, 1);
+     return  buscar(solucion, 0);
      
     
     }
     
     private boolean buscar(int[] solucion, int etapa){
-    
-        // caso base
-        if (etapa-1>this.n)return false;
-                
-        boolean exito = false;
-        solucion[etapa-1]=0;
-        
-        do{
-            solucion[etapa-1]+=1;
-            if (validar(solucion,etapa)){
-               if(etapa<n){
-                     // caso recursivo 
-                 exito=buscar(solucion,etapa+1);
-               }else{
-                 exito=true;
-               }
-            }
+    if (etapa>=n){
+            return false;
         }
-        while(solucion[etapa-1]!=n&&!exito);
-         
+        boolean exito = false;
+        while(true){
+            if(solucion[etapa]<n)
+                solucion[etapa]+=1;
+            
+            if(validar(solucion,etapa)){
+                if (etapa!=(n-1)){
+                    exito=buscar(solucion,etapa+1);
+                    if(exito==false)
+                      solucion[etapa+1] = 0;
+                }else{
+                   
+                    exito=true;
+                }
+            }
+            if(solucion[etapa]==n||exito==true)
+                break;
+        }
         
-    return false;
+        return exito;
+
     }
 
     private boolean validar(int[] solucion, int etapa) {
-        for(int i=0; i<etapa-1;i++){
-            if(solucion[i]==solucion[etapa-1]||Math.abs(solucion[i]-solucion[etapa-1])==Math.abs(i-etapa))
-                return false;
-        }
+       
+        for(int i=0;i<etapa;i++)
+            if((solucion[etapa]==solucion[i])||(Math.abs(solucion[i]-solucion[etapa])==Math.abs(i-etapa)))
+              return false;
         
         return true;
+
     }
  
     

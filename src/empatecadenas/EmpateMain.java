@@ -3,21 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package backtracking;
+package empatecadenas;
 
 /**
  *
  * @author Roberto Cruz Leija
  */
-public class BTMain {
+public class EmpateMain {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       NReinasBT aux = new NReinasBT();
-       
-       System.out.println(aux.ejecutar(30));
+     EmpateFuerzaBruta aux = new EmpateFuerzaBruta(13, null);
+     
     }
     
 }

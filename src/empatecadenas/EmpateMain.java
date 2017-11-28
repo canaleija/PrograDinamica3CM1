@@ -15,8 +15,14 @@ public class EmpateMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     EmpateFuerzaBruta aux = new EmpateFuerzaBruta(13, null);
+     int x = 0, y=0;
+     do {
+     EmpateFuerzaBruta aux = new EmpateFuerzaBruta(5000, new char[]{'h','o','l','a'});
+     x = aux.buscar();
+     y++;
+     } while(x==0);  
      
+     System.out.println(x);
     }
     
 }
